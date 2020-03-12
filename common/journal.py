@@ -1,0 +1,7 @@
+sender = 'sometestmail0@gmail.com'
+to = 'sometestmail4@gmail.com'
+subject = 'message theme'
+message_text = 'test message text'
+message_text_with_attachment = 'test message text with attachment'
+file_dir = 'attachments/'
+logger_name = 'logger.log'
