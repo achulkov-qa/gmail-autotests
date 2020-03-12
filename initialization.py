@@ -12,8 +12,8 @@ def initialization():
 
     creds = None
 
-    if os.path.exists('gmail-autotests/token.pickle'):
-        with open('gmail-autotests/token.pickle', 'rb') as token:
+    if os.path.exists('token.pickle'):
+        with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
 
     if not creds or not creds.valid:
@@ -21,9 +21,9 @@ def initialization():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'gmail-autotests/credentials.json', SCOPES)
+                'credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
-        with open('gmail-autotests/token.pickle', 'wb') as token:
+        with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
     service = build('gmail', 'v1', credentials=creds, cache_discovery=False)
