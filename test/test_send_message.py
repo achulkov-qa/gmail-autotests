@@ -19,7 +19,7 @@ class TestGmail:
                         'письма и текстом письма, после чего происходит отправка созданного письма')
     @allure.severity(allure.severity_level.BLOCKER)
     def test_send_message(self, precondition):
-        message = create_message(message_draft_text)
+        message = create_message()
         assert message, 'Не удалось создать письмо'
 
         send = send_message(precondition, message)
@@ -31,7 +31,7 @@ class TestGmail:
                         'отправка созданного письма')
     @allure.severity(allure.severity_level.CRITICAL)
     def test_send_message_from_draft(self, precondition):
-        message = create_message()
+        message = create_message(message_draft_text)
         assert message, 'Не удалось создать сообщение'
 
         draft_message = create_draft(precondition, message)
