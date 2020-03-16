@@ -1,6 +1,7 @@
 import pytest
 import allure
 
+from common.journal import message_draft_text
 from helpers.steps import create_message, create_draft, send_message, send_draft_message, \
     create_message_with_attachment
 from initialization import initialization
@@ -18,7 +19,7 @@ class TestGmail:
                         'письма и текстом письма, после чего происходит отправка созданного письма')
     @allure.severity(allure.severity_level.BLOCKER)
     def test_send_message(self, precondition):
-        message = create_message()
+        message = create_message(message_draft_text)
         assert message, 'Не удалось создать письмо'
 
         send = send_message(precondition, message)
