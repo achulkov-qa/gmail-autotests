@@ -2,7 +2,6 @@ version: "3"
 services:
   tests:
     image: achulkov/gmail-autotests
-    restart: always
     ports:
       - 8181:8181
     command: bash -c "pytest --alluredir allure_reports && allure serve allure_reports --port 8181"
